@@ -64,6 +64,10 @@ body {
 	font-size: 18px;
 }
 
+#navbar > ul > li > a:hover {
+	color: white;
+}
+
 #main-doc {
 	position: relative;
 	padding: 40px;
