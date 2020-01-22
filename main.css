@@ -21,7 +21,7 @@ body {
 }
 
 #navbar {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -82,6 +82,7 @@ body {
 	}
 
 	#navbar {
+		position: fixed;
 		width: 280px;
 		height: 100%;
 		border-bottom: 0;
