@@ -4,12 +4,6 @@ body {
 	background: #f5f6f7;
 }
 
-:root {
-	--dark: hsl(228, 8%, 12%);
-	--dark-1: hsl(228, 8%, 27%);
-	--dark-2: hsl(228, 8%, 42%);
-}
-
 .display-none {
 	display: none;
 }
@@ -25,10 +19,10 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-width: 280px;
-	background: var(--dark);
+	min-width: 50px;
+	background: hsl(228, 8%, 12%);
 	color: white;
-	border-bottom: solid 3px var(--dark-2);
+	border-bottom: solid 3px hsl(228, 8%, 42%);
 }
 
 #navbar > header {
@@ -54,12 +48,12 @@ body {
 
 #navbar > ul li {
 	list-style: none;
-	border-top: 1px solid var(--dark-1);
+	border-top: 1px solid hsl(228, 8%, 27%);
 	text-align: left;
 }
 
 #navbar > ul li:last-child {
-	border-bottom: 1px solid var(--dark-1);
+	border-bottom: 1px solid hsl(228, 8%, 27%);
 }
 
 #navbar > ul li > a {
@@ -82,12 +76,22 @@ body {
 	box-sizing: border-box;
 	overflow-x: hidden;
 	position: relative;
-	padding: 30px 30px 30px 40px;
+	padding: 0 30px 0 40px;
 	/* header height (59px) + ul height + nav border */
 	margin-top: 266px;
 }
 
-@media only screen and (min-width: 815px) {
+/* Have to do top + bot padding of #main-doc this way
+because simpleBar is buggy in Explorer if not */
+#main-doc .simplebar-content > :first-child {
+	padding-top: 30px;
+}
+
+#main-doc .simplebar-content > :last-child {
+	padding-bottom: 30px;
+}
+
+@media only screen and (min-width: 1px) {
 	#navbar > header {
 		padding: 20px;
 	}
@@ -103,17 +107,17 @@ body {
 
 	#navbar {
 		position: fixed;
-		width: 280px;
+		width: 50px;
 		height: 100%;
 		border-bottom: 0;
-		border-right: solid 3px var(--dark-2);
+		border-right: solid 3px hsl(228, 8%, 42%);
 	}
 
 	#main-doc {
-		width: calc(100% - 283px);
+		width: calc(100% - 53px);
 		position: absolute;
 		/* nav width */
-		margin-left: 283px;
+		margin-left: 53px;
 		margin-top: 0;
 	}
 }
