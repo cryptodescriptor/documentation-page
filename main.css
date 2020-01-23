@@ -37,10 +37,6 @@ body {
 	padding: 15px;
 }
 
-.simplebar-track.simplebar-vertical {
-	right: 1px;
-}
-
 .simplebar-scrollbar:before {
   background: white;
 }
