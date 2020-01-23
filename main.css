@@ -25,6 +25,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
+	min-width: 280px;
 	background: var(--dark);
 	color: white;
 	border-bottom: solid 3px var(--dark-2);
@@ -41,10 +42,10 @@ body {
 	padding: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
-	/* 52px = (18px * 2) + 16px
-	52px * 4px = 208px
-	208px + 4px (borders) = 212px */
-	height: 212px;
+	/* 50px = (16px * 2) + 18px
+	50px * 4px = 200px
+	200px + 4px (borders) = 204px */
+	height: 204px;
 }
 
 #navbar > ul > li {
@@ -61,10 +62,10 @@ body {
 	display: block;
 	color: #ccc;
 	text-decoration: none;
-	padding: 18px;
+	padding: 16px;
 	padding-left: 30px;
 	font-size: 16px;
-	line-height: 1;
+	line-height: 18px;
 }
 
 #navbar > ul > li > a:hover {
@@ -75,7 +76,7 @@ body {
 	position: relative;
 	padding: 30px;
 	/* header height (59px) + ul height + nav border */
-	margin-top: 274px;
+	margin-top: 266px;
 }
 
 @media only screen and (min-width: 815px) {
@@ -89,7 +90,7 @@ body {
 	}
 
 	#navbar > ul > li > a {
-		padding: 22px;
+		padding: 20px;
 	}
 
 	#navbar {
@@ -103,7 +104,7 @@ body {
 	#main-doc {
 		position: absolute;
 		/* nav width */
-		margin-left: 283px;
+		margin-left: 293px;
 		margin-top: 0;
 	}
 }
