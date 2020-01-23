@@ -25,7 +25,6 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: auto;
 	background: var(--dark);
 	color: white;
 	border-bottom: solid 3px var(--dark-2);
