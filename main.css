@@ -42,8 +42,8 @@ body {
 	overflow-y: auto;
 	overflow-x: hidden;
 	/* 52px = (18px * 2) + 16px
-	52px * 4 = 208px
-	208px + 4px (borders) */
+	52px * 4px = 208px
+	208px + 4px (borders) = 212px */
 	height: 212px;
 }
 
