@@ -78,7 +78,7 @@ body {
 
 #main-doc {
 	position: relative;
-	padding: 30px;
+	padding: 30px 30px 30px 40px;
 	/* header height (59px) + ul height + nav border */
 	margin-top: 266px;
 }
