@@ -26,9 +26,9 @@ body {
 	left: 0;
 	width: 100%;
 	min-width: 280px;
-	background: var(--dark);
+	background: hsl(228, 8%, 12%); /* --dark */
 	color: white;
-	border-bottom: solid 3px var(--dark-2);
+	border-bottom: solid 3px hsl(228, 8%, 42%); /* --dark-2 */
 }
 
 #navbar > header {
@@ -54,12 +54,12 @@ body {
 
 #navbar > ul li {
 	list-style: none;
-	border-top: 1px solid var(--dark-1);
+	border-top: 1px solid hsl(228, 8%, 27%); /* --dark-1 */
 	text-align: left;
 }
 
 #navbar > ul li:last-child {
-	border-bottom: 1px solid var(--dark-1);
+	border-bottom: 1px solid hsl(228, 8%, 27%); /* --dark-1 */
 }
 
 #navbar > ul li > a {
@@ -82,9 +82,17 @@ body {
 	box-sizing: border-box;
 	overflow-x: hidden;
 	position: relative;
-	padding: 30px 20px 30px 40px;
+	padding: 0 20px 0 40px;
 	/* header height (59px) + ul height + nav border */
 	margin-top: 266px;
+}
+
+.margin-top-30 {
+	margin-top: 30px;
+}
+
+.margin-bottom-30 {
+	margin-bottom: 30px;
 }
 
 @media only screen and (min-width: 815px) {
@@ -106,7 +114,7 @@ body {
 		width: 280px;
 		height: 100%;
 		border-bottom: 0;
-		border-right: solid 3px var(--dark-2);
+		border-right: solid 3px hsl(228, 8%, 42%); /* --dark-2 */
 	}
 
 	#main-doc {
