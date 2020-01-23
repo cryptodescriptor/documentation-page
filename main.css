@@ -82,6 +82,7 @@ body {
 	box-sizing: border-box;
 	overflow-x: hidden;
 	position: relative;
+	display: block;
 	padding: 0 20px 0 40px;
 	/* header height (59px) + ul height + nav border */
 	margin-top: 266px;
