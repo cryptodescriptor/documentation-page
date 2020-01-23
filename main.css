@@ -37,6 +37,10 @@ body {
 	padding: 15px;
 }
 
+.simplebar-scrollbar:before {
+  background: white;
+}
+
 #navbar > ul {
 	margin: 0;
 	padding: 0;
@@ -48,17 +52,17 @@ body {
 	height: 204px;
 }
 
-#navbar > ul > li {
+#navbar > ul li {
 	list-style: none;
 	border-top: 1px solid var(--dark-1);
 	text-align: left;
 }
 
-#navbar > ul > li:last-child {
+#navbar > ul li:last-child {
 	border-bottom: 1px solid var(--dark-1);
 }
 
-#navbar > ul > li > a {
+#navbar > ul li > a {
 	display: block;
 	color: #ccc;
 	text-decoration: none;
@@ -68,7 +72,7 @@ body {
 	line-height: 18px;
 }
 
-#navbar > ul > li > a:hover {
+#navbar > ul li > a:hover {
 	color: white;
 }
 
@@ -89,7 +93,7 @@ body {
 		height: calc(100% - 69px);
 	}
 
-	#navbar > ul > li > a {
+	#navbar > ul li > a {
 		padding: 20px;
 	}
 
