@@ -41,7 +41,10 @@ body {
 	padding: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
-	height: 208px;
+	/* 52px = (18px * 2) + 16px
+	52px * 4 = 208px
+	208px + 4px (borders) */
+	height: 212px;
 }
 
 #navbar > ul > li {
@@ -58,9 +61,10 @@ body {
 	display: block;
 	color: #ccc;
 	text-decoration: none;
-	padding: 15px;
+	padding: 18px;
 	padding-left: 30px;
-	font-size: 18px;
+	font-size: 16px;
+	line-height: 1;
 }
 
 #navbar > ul > li > a:hover {
@@ -81,7 +85,7 @@ body {
 	}
 
 	#navbar > ul > li > a {
-		padding: 20px;
+		padding: 22px;
 	}
 
 	#navbar {
