@@ -232,7 +232,6 @@ body {
 	}
 }
 
-
 /* 900px + 60px padding left, right + nav width + 15px scrollbar */
 @media only screen and (min-width: 1278px) {
 	#main-doc .ide {
