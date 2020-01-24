@@ -39,7 +39,7 @@
 		</ul>
 	</nav>
 
-	<div id="page-wrapper" class="simpleScroll">
+	<div id="page-wrapper">
 		<main id="main-doc">
 			<!-- .main-section's should contain AT LEAST - 10 p, 5 code, 5 li elements (not each) -->
 
@@ -86,7 +86,7 @@
 				<p>Nice, right? What about the other HTTP request types: PUT, DELETE, HEAD and OPTIONS? These are all just as simple:</p>
 
 				<div class="ide">
-					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'https://httpbin.org/put'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'https://httpbin.org/delete'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span></pre>
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'https://httpbin.org/put'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'https://httpbin.org/delete'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">head</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">options</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span></pre>
 				</div>
 
 				<p>That’s all well and good, but it’s also only the start of what Requests can do.</p>

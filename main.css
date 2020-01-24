@@ -152,7 +152,8 @@ body {
 	line-height: 2rem;
 	padding: 13px;
 	margin: 0;
-	overflow: auto hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 #main-doc code {
@@ -201,8 +202,8 @@ body {
 	}
 }
 
-/* 900px + 60px padding left, right + nav width */
-@media only screen and (min-width: 1263px) {
+/* 900px + 60px padding left, right + nav width + 15px scrollbar */
+@media only screen and (min-width: 1278px) {
 	#main-doc .ide {
 		width: 900px;
 	}
