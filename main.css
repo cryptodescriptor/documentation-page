@@ -82,7 +82,7 @@ body {
 
 #main-doc {
 	font-family: Georgia, serif;
-	color: rgb(62, 67, 73);
+	color: hsl(210, 9%, 26%);
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
@@ -103,6 +103,7 @@ body {
 }
 
 #main-doc header {
+	color: hsl(210, 9%, 18%);
 	font-size: 3.1rem;
 }
 
