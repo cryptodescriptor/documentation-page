@@ -50,10 +50,10 @@ body {
 	padding: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
-	/* 50px = (16px * 2) + 18px
-	50px * 4px = 200px
-	200px + 4px (borders) = 204px */
-	height: 204px;
+	/* 51px = (16px * 2) + 19px
+	51px * 4px = 204px
+	204px + 4px (borders) = 208px */
+	height: 208px;
 }
 
 #navbar > ul li {
@@ -72,8 +72,8 @@ body {
 	text-decoration: none;
 	padding: 16px;
 	padding-left: 30px;
-	font-size: 16px;
-	line-height: 18px;
+	font-size: 17px;
+	line-height: 19px;
 }
 
 #navbar > ul li > a:hover {
@@ -90,8 +90,8 @@ body {
 	position: relative;
 	display: block;
 	padding: 0 20px 0 20px;
-	/* header height (59px) + ul height + nav border */
-	margin-top: 266px;
+	/* 69px + 208px + 3px */
+	margin-top: 280px;
 }
 
 .margin-bottom-30 {
