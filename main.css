@@ -90,7 +90,7 @@ body {
 }
 
 #main-doc {
-	max-width: 1100px;
+	max-width: 1200px;
 	margin: 0 auto;
 	font-family: Georgia, serif;
 	color: hsl(210, 9%, 26%);
@@ -100,22 +100,22 @@ body {
 
 #main-doc header {
 	color: hsl(210, 9%, 18%);
-	font-size: 3.2rem;
+	font-size: 3.3rem;
 	margin-bottom: 20px;
 }
 
-#main-doc section:not(:first-of-type) header {
-	margin-top: 30px;
+#main-doc section:not(:first-of-type) > header {
+	margin-top: 25px;
 }
 
 #main-doc p,
 #main-doc ul {
-	font-size: 1.9rem;
+	font-size: 2rem;
 	margin: 20px 0;
 }
 
 #main-doc ul > li {
-	line-height: 2.3rem;
+	line-height: 2.4rem;
 }
 
 #main-doc a {
@@ -200,8 +200,8 @@ body {
 	}
 }
 
-/* 900px + 80px padding left, right + nav width */
-@media only screen and (min-width: 1283px) {
+/* 900px + 60px padding left, right + nav width */
+@media only screen and (min-width: 1263px) {
 	#main-doc .ide {
 		width: 900px;
 	}
