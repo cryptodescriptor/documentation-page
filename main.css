@@ -38,7 +38,7 @@ body {
 #navbar > header {
 	font-size: 25px;
 	text-align: center;
-	padding: 15px;
+	padding: 20px;
 }
 
 #navbar .simplebar-scrollbar:before {
@@ -168,10 +168,6 @@ body {
 }
 
 @media only screen and (min-width: 815px) {
-	#navbar > header {
-		padding: 20px;
-	}
-
 	#navbar > ul {
 		/* -69px header */
 		height: calc(100% - 69px);
