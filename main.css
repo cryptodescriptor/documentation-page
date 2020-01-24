@@ -48,8 +48,8 @@ body {
 #navbar > ul {
 	margin: 0;
 	padding: 0;
-	overflow-y: auto;
 	overflow-x: hidden;
+	overflow-y: auto;
 	/* 51px = (16px * 2) + 19px
 	51px * 4px = 204px
 	204px + 4px (borders) = 208px */
