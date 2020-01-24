@@ -20,7 +20,7 @@
 	<nav id="navbar">
 		<header>Requests Quickstart</header>
 
-		<ul class="simpleScroll">
+		<ul>
 			<li><a class="nav-link" href="#getting_started">Getting Started</a></li>
 			<li><a class="nav-link" href="#make_a_request">Make a Request</a></li>
 			<li><a class="nav-link" href="#passing_url_parameters">Passing URL Parameters</a></li>
@@ -154,9 +154,7 @@
 	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 
 	<script type="text/javascript">
-		document.querySelectorAll('.simpleScroll').forEach(function(el) {
-			new SimpleBar(el);
-		});
+		new SimpleBar(document.querySelector('#navbar > ul'));
 	</script>
 	<!--<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>-->
 </body>
