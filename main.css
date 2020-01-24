@@ -29,7 +29,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-width: 300px;
+	min-width: 285px;
 	background: hsl(228, 8%, 12%); /* --dark */
 	color: white;
 	border-bottom: solid 3px hsl(228, 8%, 42%); /* --dark-2 */
