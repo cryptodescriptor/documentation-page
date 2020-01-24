@@ -101,7 +101,7 @@ body {
 
 #main-doc header {
 	color: hsl(210, 9%, 18%);
-	font-size: 3.3rem;
+	font-size: 3.1rem;
 	margin-bottom: 20px;
 }
 
@@ -111,12 +111,12 @@ body {
 
 #main-doc p,
 #main-doc ul {
-	font-size: 2rem;
+	font-size: 1.9rem;
 	margin: 20px 0;
 }
 
 #main-doc ul > li {
-	line-height: 2.4rem;
+	line-height: 2.3rem;
 }
 
 #main-doc a {
@@ -131,6 +131,28 @@ body {
 
 #main-doc a:focus {
 	outline: dotted 1px #0086b3;
+}
+
+#main-doc a.headerlink {
+	color: #DDD;
+	padding: 0 4px;
+	text-decoration: none;
+	visibility: hidden;
+	border: 0;
+	margin-left: 2px;
+}
+
+#main-doc a.headerlink:hover {
+    color: hsl(210, 9%, 18%);
+    background: #ededed;
+}
+
+#main-doc a.headerlink:focus {
+	outline: none;
+}
+
+#main-doc header:hover a.headerlink {
+	visibility: visible;
 }
 
 #main-doc .ide {
