@@ -1,7 +1,11 @@
+html {
+	font-size: 10px;
+}
+
 body {
 	margin: 0;
 	font-family: "Open Sans", Arial, sans-serif;
-	background: #f5f6f7;
+	background: rgb(255, 255, 255);
 }
 
 :root {
@@ -77,23 +81,89 @@ body {
 }
 
 #main-doc {
+	font-family: Georgia, serif;
+	color: rgb(62, 67, 73);
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
 	overflow-x: hidden;
 	position: relative;
 	display: block;
-	padding: 0 20px 0 40px;
+	padding: 0 20px 0 20px;
 	/* header height (59px) + ul height + nav border */
 	margin-top: 266px;
 }
 
-.margin-top-30 {
+.margin-bottom-30 {
+	margin-bottom: 30px;
+}
+
+#main-doc section {
 	margin-top: 30px;
 }
 
-.margin-bottom-30 {
-	margin-bottom: 30px;
+#main-doc header {
+	font-size: 3.1rem;
+}
+
+#main-doc p,
+#main-doc ul {
+	font-size: 1.8rem;
+	margin: 20px 0;
+}
+
+#main-doc ul > li {
+	line-height: 2.2rem;
+}
+
+#main-doc a {
+	color: #0086b3;
+	text-decoration: none;
+	border-bottom: dotted 1px #0086b3;
+}
+
+#main-doc a:hover {
+	color: #004e66;
+}
+
+#main-doc a:focus {
+	outline: dotted 1px #0086b3;
+}
+
+#main-doc .ide {
+	font-size: 1.65rem;
+	background: #272822;
+	width: 100%;
+}
+
+#main-doc .ide,
+#main-doc code {
+	font-family: 'Consolas',
+	monospace,
+	'Menlo'
+	'DejaVu Sans Mono',
+	'Bitstream Vera Sans Mono';
+}
+
+#main-doc .ide > pre {
+	line-height: 2rem;
+	padding: 13px;
+	margin: 0;
+	overflow: auto hidden;
+}
+
+#main-doc code {
+	color: black;
+	background: #ecf0f3;
+}
+
+#main-doc code.xref {
+	font-weight: bold;
+	background: #f7f7f7;
+}
+
+#main-doc code.xref:hover {
+	background: #ededed;
 }
 
 @media only screen and (min-width: 815px) {
@@ -119,10 +189,18 @@ body {
 	}
 
 	#main-doc {
+		padding: 0 40px 0 40px;
 		width: calc(100% - 283px);
 		position: absolute;
 		/* nav width */
 		margin-left: 283px;
 		margin-top: 0;
+	}
+}
+
+/* 600px + 80px padding left, right + nav width */
+@media only screen and (min-width: 1163px) {
+	#main-doc .ide {
+		width: 800px;
 	}
 }
