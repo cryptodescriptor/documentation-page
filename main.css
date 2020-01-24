@@ -6,6 +6,7 @@ body {
 	margin: 0;
 	font-family: "Open Sans", Arial, sans-serif;
 	background: #ffffff;
+	min-width: 285px;
 }
 
 :root {
@@ -90,6 +91,7 @@ body {
 }
 
 #main-doc {
+	font-size: 10px;
 	max-width: 1200px;
 	margin: 0 auto;
 	font-family: Georgia, serif;
@@ -101,7 +103,7 @@ body {
 
 #main-doc header {
 	color: hsl(210, 9%, 18%);
-	font-size: 3.1rem;
+	font-size: 2.95em;
 	margin-bottom: 20px;
 }
 
@@ -111,12 +113,12 @@ body {
 
 #main-doc p,
 #main-doc ul {
-	font-size: 1.9rem;
+	font-size: 1.85em;
 	margin: 20px 0;
 }
 
 #main-doc ul > li {
-	line-height: 2.3rem;
+	line-height: 1.4;
 }
 
 #main-doc a {
@@ -156,7 +158,7 @@ body {
 }
 
 #main-doc .ide {
-	font-size: 1.65rem;
+	font-size: 1.6em;
 	background: #272822;
 	width: 100%;
 }
@@ -171,7 +173,7 @@ body {
 }
 
 #main-doc .ide > pre {
-	line-height: 2rem;
+	line-height: 1.2;
 	padding: 13px;
 	margin: 0;
 	overflow-x: auto;
@@ -191,6 +193,12 @@ body {
 
 #main-doc code.xref:hover {
 	background: #ededed;
+}
+
+@media only screen and (min-width: 600px) {
+	#main-doc {
+		font-size: 11px;
+	}
 }
 
 @media only screen and (min-width: 815px) {
@@ -223,6 +231,7 @@ body {
 		margin-top: 0;
 	}
 }
+
 
 /* 900px + 60px padding left, right + nav width + 15px scrollbar */
 @media only screen and (min-width: 1278px) {
