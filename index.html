@@ -39,115 +39,117 @@
 		</ul>
 	</nav>
 
-	<main id="main-doc" class="simpleScroll">
-		<!-- .main-section's should contain AT LEAST - 10 p, 5 code, 5 li elements (not each) -->
+	<div id="page-wrapper" class="simpleScroll">
+		<main id="main-doc">
+			<!-- .main-section's should contain AT LEAST - 10 p, 5 code, 5 li elements (not each) -->
 
-		<section class="main-section" id="getting_started">
-			<header>Getting Started</header>
+			<section class="main-section" id="getting_started">
+				<header>Getting Started</header>
 
-			<p>Eager to get started? This page gives a good introduction in how to get started with Requests.</p>
+				<p>Eager to get started? This page gives a good introduction in how to get started with Requests.</p>
 
-			<p>First, make sure that:</p>
+				<p>First, make sure that:</p>
 
-			<ul>
-				<li>Requests is <a href="https://2.python-requests.org/en/master/user/install/#install" target="_blank">installed</a></li>
-				<li>Requests is <a href="https://2.python-requests.org/en/master/community/updates/#updates" target="_blank">up-to-date</a></li>
-			</ul>
+				<ul>
+					<li>Requests is <a href="https://2.python-requests.org/en/master/user/install/#install" target="_blank">installed</a></li>
+					<li>Requests is <a href="https://2.python-requests.org/en/master/community/updates/#updates" target="_blank">up-to-date</a></li>
+				</ul>
 
-			<p>Let’s get started with some simple examples.</p>
-		</section>
+				<p>Let’s get started with some simple examples.</p>
+			</section>
 
-		<section class="main-section" id="make_a_request">
-			<header>Make a Request</header>
+			<section class="main-section" id="make_a_request">
+				<header>Make a Request</header>
 
-			<p>Making a request with Requests is very simple.</p>
-			<p>Begin by importing the Requests module:</p>
+				<p>Making a request with Requests is very simple.</p>
+				<p>Begin by importing the Requests module:</p>
 
-			<div class="ide">
-				<pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span></pre>
-			</div>
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span></pre>
+				</div>
 
-			<p>Now, let’s try to get a webpage. For this example, let’s get GitHub’s public timeline:</p>
+				<p>Now, let’s try to get a webpage. For this example, let’s get GitHub’s public timeline:</p>
 
-			<div class="ide">
-				<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="m">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">)</span></pre>
-			</div>
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="m">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">)</span></pre>
+				</div>
 
-			<p>Now, we have a <a href="https://2.python-requests.org/en/master/api/#requests.Response" target="_blank"><code class="xref">Response</code></a> object called <code>r</code>. We can get all the information we need from this object.</p>
+				<p>Now, we have a <a href="https://2.python-requests.org/en/master/api/#requests.Response" target="_blank"><code class="xref">Response</code></a> object called <code>r</code>. We can get all the information we need from this object.</p>
 
-			<p>Requests’ simple API means that all forms of HTTP request are as obvious. For
-			example, this is how you make an HTTP POST request:</p>
+				<p>Requests’ simple API means that all forms of HTTP request are as obvious. For
+				example, this is how you make an HTTP POST request:</p>
 
-			<div class="ide">
-				<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://httpbin.org/post'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span></pre>
-			</div>
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://httpbin.org/post'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span></pre>
+				</div>
 
-			<p>Nice, right? What about the other HTTP request types: PUT, DELETE, HEAD and OPTIONS? These are all just as simple:</p>
+				<p>Nice, right? What about the other HTTP request types: PUT, DELETE, HEAD and OPTIONS? These are all just as simple:</p>
 
-			<div class="ide">
-				<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'https://httpbin.org/put'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'https://httpbin.org/delete'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span></pre>
-			</div>
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'https://httpbin.org/put'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'https://httpbin.org/delete'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span></pre>
+				</div>
 
-			<p>That’s all well and good, but it’s also only the start of what Requests can do.</p>
-		</section>
+				<p>That’s all well and good, but it’s also only the start of what Requests can do.</p>
+			</section>
 
-		<section class="main-section" id="passing_url_parameters">
-			<header>Passing URL Parameters</header>
-		</section>
+			<section class="main-section" id="passing_url_parameters">
+				<header>Passing URL Parameters</header>
+			</section>
 
-		<!--
-		<section class="main-section" id="response_content">
-			<header>Response Content</header>
-		</section>
+			<!--
+			<section class="main-section" id="response_content">
+				<header>Response Content</header>
+			</section>
 
-		<section class="main-section" id="binary_response_content">
-			<header>Binary Response Content</header>
-		</section>
+			<section class="main-section" id="binary_response_content">
+				<header>Binary Response Content</header>
+			</section>
 
-		<section class="main-section" id="json_response_content">
-			<header>JSON Response Content</header>
-		</section>
+			<section class="main-section" id="json_response_content">
+				<header>JSON Response Content</header>
+			</section>
 
-		<section class="main-section" id="raw_response_content">
-			<header>Raw Response Content</header>
-		</section>
+			<section class="main-section" id="raw_response_content">
+				<header>Raw Response Content</header>
+			</section>
 
-		<section class="main-section" id="custom_headers">
-			<header>Custom Headers</header>
-		</section>
+			<section class="main-section" id="custom_headers">
+				<header>Custom Headers</header>
+			</section>
 
-		<section class="main-section" id="more_complicated_post_requests">
-			<header>More Complicated POST Requests</header>
-		</section>
+			<section class="main-section" id="more_complicated_post_requests">
+				<header>More Complicated POST Requests</header>
+			</section>
 
-		<section class="main-section" id="post_a_multipart_encoded_file">
-			<header>POST a Multipart-Encoded File</header>
-		</section>
+			<section class="main-section" id="post_a_multipart_encoded_file">
+				<header>POST a Multipart-Encoded File</header>
+			</section>
 
-		<section class="main-section" id="response_status_codes">
-			<header>Response Status Codes</header>
-		</section>
+			<section class="main-section" id="response_status_codes">
+				<header>Response Status Codes</header>
+			</section>
 
-		<section class="main-section" id="response_headers">
-			<header>Response Headers</header>
-		</section>
+			<section class="main-section" id="response_headers">
+				<header>Response Headers</header>
+			</section>
 
-		<section class="main-section" id="cookies">
-			<header>Cookies</header>
-		</section>
+			<section class="main-section" id="cookies">
+				<header>Cookies</header>
+			</section>
 
-		<section class="main-section" id="redirection_and_history">
-			<header>Redirection and History</header>
-		</section>
+			<section class="main-section" id="redirection_and_history">
+				<header>Redirection and History</header>
+			</section>
 
-		<section class="main-section" id="timeouts">
-			<header>Timeouts</header>
-		</section>
+			<section class="main-section" id="timeouts">
+				<header>Timeouts</header>
+			</section>
 
-		<section class="main-section margin-bottom-30" id="errors_and_exceptions">
-			<header>Errors and Exceptions</header>
-		</section>-->
-	</main>
+			<section class="main-section margin-bottom-30" id="errors_and_exceptions">
+				<header>Errors and Exceptions</header>
+			</section>-->
+		</main>
+	</div>
 
 	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 

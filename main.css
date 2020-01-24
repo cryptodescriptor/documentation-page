@@ -29,7 +29,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-width: 280px;
+	min-width: 300px;
 	background: hsl(228, 8%, 12%); /* --dark */
 	color: white;
 	border-bottom: solid 3px hsl(228, 8%, 42%); /* --dark-2 */
@@ -80,41 +80,39 @@ body {
 	color: white;
 }
 
-#main-doc {
-	font-family: Georgia, serif;
-	color: hsl(210, 9%, 26%);
-	width: 100%;
+#page-wrapper {
 	height: 100%;
-	box-sizing: border-box;
-	overflow-x: hidden;
+	width: 100%;
 	position: relative;
 	display: block;
-	padding: 0 20px 0 20px;
 	/* 69px + 208px + 3px */
 	margin-top: 280px;
 }
 
-.margin-bottom-30 {
-	margin-bottom: 30px;
-}
-
-#main-doc section {
-	margin-top: 30px;
+#main-doc {
+	max-width: 1200px;
+	margin: 0 auto;
+	font-family: Georgia, serif;
+	color: hsl(210, 9%, 26%);
+	box-sizing: border-box;
+	padding: 0 20px 20px 20px;
 }
 
 #main-doc header {
 	color: hsl(210, 9%, 18%);
 	font-size: 3.1rem;
+	margin-top: 30px;
+	margin-bottom: 20px;
 }
 
 #main-doc p,
 #main-doc ul {
-	font-size: 1.8rem;
+	font-size: 1.9rem;
 	margin: 20px 0;
 }
 
 #main-doc ul > li {
-	line-height: 2.2rem;
+	line-height: 2.3rem;
 }
 
 #main-doc a {
@@ -180,25 +178,28 @@ body {
 
 	#navbar {
 		position: fixed;
-		width: 280px;
+		width: 300px;
 		height: 100%;
 		border-bottom: 0;
 		border-right: solid 3px hsl(228, 8%, 42%); /* --dark-2 */
 	}
 
 	#main-doc {
-		padding: 0 40px 0 40px;
-		width: calc(100% - 283px);
+		padding: 0 30px 30px 30px;
+	}
+
+	#page-wrapper {
 		position: absolute;
+		width: calc(100% - 303px);
 		/* nav width */
-		margin-left: 283px;
+		margin-left: 303px;
 		margin-top: 0;
 	}
 }
 
-/* 600px + 80px padding left, right + nav width */
-@media only screen and (min-width: 1163px) {
+/* 900px + 80px padding left, right + nav width */
+@media only screen and (min-width: 1283px) {
 	#main-doc .ide {
-		width: 800px;
+		width: 900px;
 	}
 }
