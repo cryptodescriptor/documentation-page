@@ -304,7 +304,7 @@
 					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://httpbin.org/status/404'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_r</span><span class="d">.</span><span class="n">status_code</span><br><span class="mi">404</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_r</span><span class="d">.</span><span class="me">raise_for_status</span><span class="p">()</span><br>Traceback (most recent call last):<br>  File <span class="s1">"requests/models.py"</span>, line <span class="mi">832</span>, <span class="ow">in</span> <span class="n">raise_for_status</span><br>    <span class="k">raise</span> <span class="n">http_error</span><br>requests.exceptions.HTTPError: <span class="n"><span class="mi">404</span> Client Error</span></pre>
 				</div>
 
-				<p>But, since our <code>status_code</code> for <code>r</code> was <code>200</code>, when we call<code> raise_for_status()</code> we get:</p>
+				<p>But, since our <code>status_code</code> for <code>r</code> was <code>200</code>, when we call <code>raise_for_status()</code> we get:</p>
 
 				<div class="ide">
 					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="b">.</span><span class="n">raise_for_status</span><span class="p">()</span><br><span class="kc">None</span></pre>
