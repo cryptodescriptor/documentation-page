@@ -15,16 +15,6 @@ body {
 	--dark-2: hsl(228, 8%, 42%);
 }
 
-.display-none {
-	display: none;
-}
-
-.flex-center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 #navbar {
 	position: absolute;
 	top: 0;
