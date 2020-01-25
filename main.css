@@ -92,13 +92,17 @@ body {
 
 #main-doc {
 	font-size: 10px;
-	max-width: 1300px;
+	max-width: 1200px;
 	margin: 0 auto;
 	font-family: Georgia, serif;
 	color: hsl(210, 9%, 26%);
 	box-sizing: border-box;
 	display: block;
 	padding: 20px;
+}
+
+#main-doc * {
+	max-width: 900px;
 }
 
 #main-doc header {
@@ -108,12 +112,22 @@ body {
 }
 
 #main-doc section:not(:first-of-type) > header {
-	margin-top: 25px;
+	margin-top: 30px;
+}
+
+#main-doc p,
+#main-doc blockquote {
+	line-height: 1.3;
+}
+
+#main-doc blockquote {
+	font-size: 1.7em;
+	margin: 0 0 0 30px;
 }
 
 #main-doc p,
 #main-doc ul {
-	font-size: 1.85em;
+	font-size: 1.7em;
 	margin: 20px 0;
 }
 
@@ -158,10 +172,30 @@ body {
 }
 
 #main-doc .ide {
-	font-size: 1.6em;
+	font-size: 1.55em;
 	background: #272822;
 	width: 100%;
+	color: #f8f8f2;
 }
+
+.ide .a { color: #fd971f } /* Argument */
+.ide .d { color: #f8f8f2; } /* Dot */
+.ide .k { color: #f92672 } /* Keyword */
+.ide .n { color: #f8f8f2 } /* Name */
+.ide .o { color: #f92672 } /* Operator */
+.ide .p { color: #f8f8f2; } /* Punctuation */
+.ide .go { color: #c2c2c2 } /* Generic.Output */
+.ide .gp { color: #f92672 } /* Generic.Prompt */
+.ide .kc { color: #ae81dd } /* Keyword.Constant */
+.ide .kn { color: #f92672 } /* Keyword.Namespace */
+.ide .nb { color: #66d9ef } /* Name.Builtin */
+.ide .nn { color: #f8f8f2 } /* Name.Namespace */
+.ide .ow { color: #f92672 } /* Operator.Word */
+.ide .me { color: #66d9ef; } /* Method */
+.ide .mf { color: #ae81dd } /* Literal.Number.Float */
+.ide .mi { color: #ae81dd } /* Literal.Number.Integer */
+.ide .se { color: #ae81dd } /* Literal.String.Escape */
+.ide .s1 { color: #e6db74 } /* Literal.String.Single */
 
 #main-doc .ide,
 #main-doc code {
@@ -191,11 +225,47 @@ body {
 	border-bottom: dotted 1px #ffffff;
 }
 
-#main-doc code.xref:hover {
+#main-doc code.xref:not(.nolink):hover {
 	background: #ededed;
 }
 
+#main-doc .note {
+	margin: 20px 0;
+	padding: 10px 30px;
+}
+
+#main-doc .note-title {
+	font-size: 2.4rem;
+	line-height: 1;
+	margin: 0 0 10px 0;
+}
+
+#main-doc .note-body {
+	margin: 20px 0 0 0;
+}
+
+#main-doc .note.amber {
+	background: rgb(255, 245, 156);
+	border: solid 1px #ccc;
+}
+
+#main-doc .note.warning {
+	background: #fcc;
+	border: solid 1px #faa;
+}
+
+#main-doc .note.neutral {
+	background: #eee;
+	border: solid 1px #ccc;
+}
+
 @media only screen and (min-width: 600px) {
+	/* Adjust font-size because headerlink causes
+	premature wrapping */
+	#main-doc header {
+		font-size: 3.05em;
+	}
+
 	#main-doc {
 		font-size: 11px;
 	}

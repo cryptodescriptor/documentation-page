@@ -14,7 +14,6 @@
 	/>
 
 	<link rel="stylesheet" type="text/css" href="./main.css">
-	<link rel="stylesheet" type="text/css" href="./ide.css">
 </head>
 <body>
 	<nav id="navbar">
@@ -71,22 +70,21 @@
 				<p>Now, let’s try to get a webpage. For this example, let’s get GitHub’s public timeline:</p>
 
 				<div class="ide">
-					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="m">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">)</span></pre>
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">)</span></pre>
 				</div>
 
 				<p>Now, we have a <a href="https://2.python-requests.org/en/master/api/#requests.Response" target="_blank"><code class="xref">Response</code></a> object called <code>r</code>. We can get all the information we need from this object.</p>
 
-				<p>Requests’ simple API means that all forms of HTTP request are as obvious. For
-				example, this is how you make an HTTP POST request:</p>
+				<p>Requests’ simple API means that all forms of HTTP request are as obvious. For example, this is how you make an HTTP POST request:</p>
 
 				<div class="ide">
-					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://httpbin.org/post'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span></pre>
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="s1">'https://httpbin.org/post'</span><span class="p">,</span> <span class="a">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span></pre>
 				</div>
 
 				<p>Nice, right? What about the other HTTP request types: PUT, DELETE, HEAD and OPTIONS? These are all just as simple:</p>
 
 				<div class="ide">
-					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'https://httpbin.org/put'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'https://httpbin.org/delete'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">head</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">options</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span></pre>
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">put</span><span class="p">(</span><span class="s1">'https://httpbin.org/put'</span><span class="p">,</span> <span class="a">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'key'</span><span class="p">:</span><span class="s1">'value'</span><span class="p">})</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">delete</span><span class="p">(</span><span class="s1">'https://httpbin.org/delete'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">head</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">options</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span></pre>
 				</div>
 
 				<p>That’s all well and good, but it’s also only the start of what Requests can do.</p>
@@ -94,60 +92,328 @@
 
 			<section class="main-section" id="passing_url_parameters">
 				<header>Passing URL Parameters<a class="headerlink" href="#passing_url_parameters" title="Permalink to this headline">¶</a></header>
+
+				<p>You often want to send some sort of data in the URL’s query string. If you were constructing the URL by hand, this data would be given as key/value pairs in the URL after a question mark, e.g. <code>httpbin.org/get?key=val</code>. Requests allows you to provide these arguments as a dictionary of strings, using the <code>params</code> keyword argument. As an example, if you wanted to pass <code>key1=value1</code> and <code>key2=value2</code> to <code>httpbin.org/get</code>, you would use the following code:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">}</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">,</span> <span class="a">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span></pre>
+				</div>
+
+				<p>You can see that the URL has been correctly encoded by printing the URL:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="d">.</span><span class="n">url</span><span class="p">)</span><br><span class="go">https://httpbin.org/get?key2=value2&amp;key1=value1</span></pre>
+				</div>
+
+				<p>Note that any dictionary key whose value is <code>None</code> will not be added to the URL’s query string.</p>
+				
+				<p>You can also pass a list of items as a value:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'value2'</span><span class="p">,</span> <span class="s1">'value3'</span><span class="p">]}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">,</span> <span class="a">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="d">.</span><span class="n">url</span><span class="p">)</span><br><span class="go">https://httpbin.org/get?key1=value1&amp;key2=value2&amp;key2=value3</span></pre>
+				</div>
 			</section>
 
-			<!--
 			<section class="main-section" id="response_content">
 				<header>Response Content<a class="headerlink" href="#response_content" title="Permalink to this headline">¶</a></header>
+
+				<p>We can read the content of the server’s response. Consider the GitHub timeline again:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">text</span><br><span class="go">u'[{"repository":{"open_issues":0,"url":"https://github.com/...</span></pre>
+				</div>
+
+				<p>Requests will automatically decode content from the server. Most unicode charsets are seamlessly decoded.</p>
+
+				<p>When you make a request, Requests makes educated guesses about the encoding of the response based on the HTTP headers. The text encoding guessed by Requests is used when you access <code>r.text</code>. You can find out what encoding Requests is using, and change it, using the <code>r.encoding</code> property:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">encoding</span><br><span class="go">'utf-8'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">'ISO-8859-1'</span></pre>
+				</div>
+
+				<p>If you change the encoding, Requests will use the new value of <code>r.encoding</code> whenever you call <code>r.text</code>. You might want to do this in any situation where you can apply special logic to work out what the encoding of the content will be. For example, HTML and XML have the ability to specify their encoding in their body. In situations like this, you should use <code>r.content</code> to find the encoding, and then set <code>r.encoding</code>. This will let you use <code>r.text</code> with the correct encoding.</p>
+
+				<p>Requests will also use custom encodings in the event that you need them. If you have created your own encoding and registered it with the <code>codecs</code> module, you can simply use the codec name as the value of <code>r.encoding</code> and Requests will handle the decoding for you.</p>
 			</section>
 
 			<section class="main-section" id="binary_response_content">
 				<header>Binary Response Content<a class="headerlink" href="#binary_response_content" title="Permalink to this headline">¶</a></header>
+
+				<p>You can also access the response body as bytes, for non-text requests:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">content</span><br><span class="go">b'[{"repository":{"open_issues":0,"url":"https://github.com/...</span></pre>
+				</div>
+
+				<p>The <code>gzip</code> and <code>deflate</code> transfer-encodings are automatically decoded for you.</p>
+
+				<p>For example, to create an image from binary data returned by a request, you can use the following code:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span><br><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">BytesIO</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">Image</span><span class="d">.</span><span class="me">open</span><span class="p">(</span><span class="nb">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="d">.</span><span class="n">content</span><span class="p">))</span></pre>
+				</div>
+
 			</section>
 
 			<section class="main-section" id="json_response_content">
 				<header>JSON Response Content<a class="headerlink" href="#json_response_content" title="Permalink to this headline">¶</a></header>
+
+				<p>There’s also a builtin JSON decoder, in case you’re dealing with JSON data:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="me">json</span><span class="p">()</span><br><span class="go">[{u'repository': {u'open_issues': 0, u'url': 'https://github.com/...</span></pre>
+				</div>
+
+				<p>In case the JSON decoding fails, <code>r.json()</code> raises an exception. For example, if the response gets a 204 (No Content), or if the response contains invalid JSON, attempting <code>r.json()</code> raises <code>ValueError: No JSON object could be decoded</code>.</p>
+
+				<p>It should be noted that the success of the call to <code>r.json()</code> does <strong>not</strong> indicate the success of the response. Some servers may return a JSON object in a failed response (e.g. error details with HTTP 500). Such JSON will be decoded and returned. To check that a request is successful, use <code>r.raise_for_status()</code> or check <code>r.status_code</code> is what you expect.</p>
 			</section>
 
 			<section class="main-section" id="raw_response_content">
 				<header>Raw Response Content<a class="headerlink" href="#raw_response_content" title="Permalink to this headline">¶</a></header>
+
+				<p>In the rare case that you’d like to get the raw socket response from the server, you can access <code>r.raw</code>. If you want to do this, make sure you set <code>stream=True</code> in your initial request. Once you do, you can do this:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://api.github.com/events'</span><span class="p">,</span> <span class="a">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">raw</span><br><span class="go">&lt;urllib3.response.HTTPResponse object at 0x101194810&gt;</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">raw</span><span class="d">.</span><span class="me">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><br><span class="go">'\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\x03'</span></pre>
+				</div>
+
+				<p>In general, however, you should use a pattern like this to save what is being streamed to a file:</p>
+
+				<div class="ide">
+					<pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span><br>    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="d">.</span><span class="me">iter_content</span><span class="p">(</span><span class="a">chunk_size</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span><br>        <span class="n">fd</span><span class="d">.</span><span class="me">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span></pre>
+				</div>
+
+				<p>Using <code>Response.iter_content</code> will handle a lot of what you would otherwise have to handle when using <code>Response.raw</code> directly. When streaming a download, the above is the preferred and recommended way to retrieve the content. Note that <code>chunk_size</code> can be freely adjusted to a number that may better fit your use cases.</p>
+
+				<div class="note amber">
+					<p class="note-title">Note:</p>
+					<p class="note-body">An important note about using <code>Response.iter_content</code> versus <code>Response.raw</code>.
+					<code>Response.iter_content</code> will automatically decode the <code>gzip</code> and <code>deflate</code>
+					transfer-encodings.  <code>Response.raw</code> is a raw stream of bytes – it does not transform the response content. If you really need access to the bytes as they were returned, use <code>Response.raw</code>.</p>
+				</div>
 			</section>
 
 			<section class="main-section" id="custom_headers">
 				<header>Custom Headers<a class="headerlink" href="#custom_headers" title="Permalink to this headline">¶</a></header>
+
+				<p>If you’d like to add HTTP headers to a request, simply pass in a <code>dict</code> to the <code>headers</code> parameter.</p>
+
+				<p>For example, we didn’t specify our user-agent in the previous example:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.github.com/some/endpoint'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'user-agent'</span><span class="p">:</span> <span class="s1">'my-app/0.0.1'</span><span class="p">}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span></pre>
+				</div>
+
+				<p>Note: Custom headers are given less precedence than more specific sources of information. For instance:</p>
+
+				<ul>
+					<li>Authorization headers set with <cite>headers=</cite> will be overridden if credentials are specified in <code>.netrc</code>, which in turn will be overridden by the  <code>auth=</code> parameter.</li>
+					<li>Authorization headers will be removed if you get redirected off-host.</li>
+					<li>Proxy-Authorization headers will be overridden by proxy credentials provided in the URL.</li>
+					<li>Content-Length headers will be overridden when we can determine the length of the content.</li>
+				</ul>
+
+				<p>Furthermore, Requests does not change its behavior at all based on which custom headers are specified. The headers are simply passed on into the final request.</p>
+
+				<p>Note: All header values must be a <code>string</code>, bytestring, or unicode. While permitted, it’s advised to avoid passing unicode header values.</p>
 			</section>
 
 			<section class="main-section" id="more_complicated_post_requests">
 				<header>More Complicated POST Requests<a class="headerlink" href="#more_complicated_post_requests" title="Permalink to this headline">¶</a></header>
+
+				<p>Typically, you want to send some form-encoded data — much like an HTML form. To do this, simply pass a dictionary to the <code>data</code> argument. Your dictionary of data will automatically be form-encoded when the request is made:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="s1">"https://httpbin.org/post"</span><span class="p">,</span> <span class="a">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="d">.</span><span class="n">text</span><span class="p">)</span><br><span class="go">{</span><br><span class="go">  ...</span><br><span class="go">  "form": {</span><br><span class="go">    "key2": "value2",</span><br><span class="go">    "key1": "value1"</span><br><span class="go">  },</span><br><span class="go">  ...</span><br><span class="go">}</span></pre>
+				</div>
+
+				<p>The <code>data</code> argument can also have multiple values for each key. This can be done by making <code>data</code> either a list of tuples or a dictionary with lists as values. This is particularly useful when the form has multiple elements that use the same key:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">payload_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'value1'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'value2'</span><span class="p">)]</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="s1">'https://httpbin.org/post'</span><span class="p">,</span> <span class="a">data</span><span class="o">=</span><span class="n">payload_tuples</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">payload_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'value2'</span><span class="p">]}</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r2</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="s1">'https://httpbin.org/post'</span><span class="p">,</span> <span class="a">data</span><span class="o">=</span><span class="n">payload_dict</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">r1</span><span class="d">.</span><span class="n">text</span><span class="p">)</span><br><span class="go">{</span><br><span class="go">  ...</span><br><span class="go">  "form": {</span><br><span class="go">    "key1": [</span><br><span class="go">      "value1",</span><br><span class="go">      "value2"</span><br><span class="go">    ]</span><br><span class="go">  },</span><br><span class="go">  ...</span><br><span class="go">}</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r1</span><span class="d">.</span><span class="n">text</span> <span class="o">==</span> <span class="n">r2</span><span class="d">.</span><span class="n">text</span><br><span class="kc">True</span></pre>
+				</div>
+
+				<p>There are times that you may want to send data that is not form-encoded. If you pass in a <code>string</code> instead of a <code>dict</code>, that data will be posted directly.</p>
+
+				<p>For example, the GitHub API v3 accepts JSON-Encoded POST/PATCH data:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">json</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.github.com/some/endpoint'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'some'</span><span class="p">:</span> <span class="s1">'data'</span><span class="p">}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">data</span><span class="o">=</span><span class="n">json</span><span class="d">.</span><span class="me">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span></pre>
+				</div>
+
+				<p>Instead of encoding the <code>dict</code> yourself, you can also pass it directly using the <code>json</code> parameter (added in version 2.4.2) and it will be encoded automatically:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.github.com/some/endpoint'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'some'</span><span class="p">:</span> <span class="s1">'data'</span><span class="p">}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span></pre>
+				</div>
+
+				<p>Note, the <code>json</code> parameter is ignored if either <code>data</code> or <code>files</code> is passed.</p>
+
+				<p>Using the <code>json</code> parameter in the request will change the <code>Content-Type</code> in the header to <code>application/json</code>.</p>
 			</section>
 
 			<section class="main-section" id="post_a_multipart_encoded_file">
 				<header>POST a Multipart-Encoded File<a class="headerlink" href="#post_a_multipart_encoded_file" title="Permalink to this headline">¶</a></header>
+
+				<p>Requests makes it simple to upload Multipart-encoded files:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://httpbin.org/post'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'file'</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'report.xls'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">text</span><br><span class="go">{</span><br><span class="go">  ...</span><br><span class="go">  "files": {</span><br><span class="go">    "file": "&lt;censored...binary...data&gt;"</span><br><span class="go">  },</span><br><span class="go">  ...</span><br><span class="go">}</span></pre>
+				</div>
+
+				<p>You can set the filename, content_type and headers explicitly:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://httpbin.org/post'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'file'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'report.xls'</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'report.xls'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">),</span> <span class="s1">'application/vnd.ms-excel'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Expires'</span><span class="p">:</span> <span class="s1">'0'</span><span class="p">})}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">text</span><br><span class="go">{</span><br><span class="go">  ...</span><br><span class="go">  "files": {</span><br><span class="go">    "file": "&lt;censored...binary...data&gt;"</span><br><span class="go">  },</span><br><span class="go">  ...</span><br><span class="go">}</span></pre>
+				</div>
+
+				<p>If you want, you can send strings to be received as files:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://httpbin.org/post'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'file'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'report.csv'</span><span class="p">,</span> <span class="s1">'some,data,to,send</span><span class="se">\n</span><span class="s1">another,row,to,send</span><span class="se">\n</span><span class="s1">'</span><span class="p">)}</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">text</span><br><span class="go">{</span><br><span class="go">  ...</span><br><span class="go">  "files": {</span><br><span class="go">    "file": "some,data,to,send\\nanother,row,to,send\\n"</span><br><span class="go">  },</span><br><span class="go">  ...</span><br><span class="go">}</span></pre>
+				</div>
+
+				<p>In the event you are posting a very large file as a <code>multipart/form-data</code> request, you may want to stream the request. By default, <code>requests</code> does not support this, but there is a separate package which does - <code>requests-toolbelt</code>. You should read <a href="https://toolbelt.readthedocs.io" target="_blank">the toolbelt’s documentation</a> for more details about how to use it.</p>
+
+				<p>For sending multiple files in one request refer to the <a href="https://2.python-requests.org/en/master/user/advanced/#advanced" target="_blank">advanced</a> section.</p>
+
+				<div class="note warning">
+					<p class="note-title">Warning</p>
+					<p>It is strongly recommended that you open files in <span class="xref">binary mode</span>. This is because Requests may attempt to provide the <code>Content-Length</code> header for you, and if it does this value will be set to the number of <em>bytes</em> in the file. Errors may occur if you open the file in <em>text mode</em>.</p>
+				</div>
 			</section>
 
 			<section class="main-section" id="response_status_codes">
 				<header>Response Status Codes<a class="headerlink" href="#response_status_codes" title="Permalink to this headline">¶</a></header>
+
+				<p>We can check the response status code:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://httpbin.org/get'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">status_code</span><br><span class="mi">200</span></pre>
+				</div>
+
+				<p>Requests also comes with a built-in status code lookup object for easy reference:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">requests</span><span class="d">.</span><span class="n">codes</span><span class="d">.</span><span class="n">ok</span><br><span class="kc">True</span></pre>
+				</div>
+
+				<p>If we made a bad request (a 4XX client error or 5XX server error response), we can raise it with <a href="https://2.python-requests.org/en/master/api/#requests.Response.raise_for_status" title="requests.Response.raise_for_status" target="_blank"><code class="xref">Response.raise_for_status()</code></a>:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://httpbin.org/status/404'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_r</span><span class="d">.</span><span class="n">status_code</span><br><span class="mi">404</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">bad_r</span><span class="d">.</span><span class="me">raise_for_status</span><span class="p">()</span><br>Traceback (most recent call last):<br>  File <span class="s1">"requests/models.py"</span>, line <span class="mi">832</span>, <span class="ow">in</span> <span class="n">raise_for_status</span><br>    <span class="k">raise</span> <span class="n">http_error</span><br>requests.exceptions.HTTPError: <span class="n"><span class="mi">404</span> Client Error</span></pre>
+				</div>
+
+				<p>But, since our <code>status_code</code> for <code>r</code> was <code>200</code>, when we call<code> raise_for_status()</code> we get:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="b">.</span><span class="n">raise_for_status</span><span class="p">()</span><br><span class="kc">None</span></pre>
+				</div>
+
+				<p>All is well.</p>
 			</section>
 
 			<section class="main-section" id="response_headers">
 				<header>Response Headers<a class="headerlink" href="#response_headers" title="Permalink to this headline">¶</a></header>
+
+				<p>We can view the server’s response headers using a Python dictionary:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">headers</span><br><span class="go">{</span><br><span class="go">    'content-encoding': 'gzip',</span><br><span class="go">    'transfer-encoding': 'chunked',</span><br><span class="go">    'connection': 'close',</span><br><span class="go">    'server': 'nginx/1.0.4',</span><br><span class="go">    'x-runtime': '148ms',</span><br><span class="go">    'etag': '"e1ca502697e5c9317743dc078f67693f"',</span><br><span class="go">    'content-type': 'application/json'</span><br><span class="go">}</span></pre>
+				</div>
+
+				<p>The dictionary is special, though: it’s made just for HTTP headers. According to <a href="https://tools.ietf.org/html/rfc7230#section-3.2" target="_blank">RFC 7230</a>, HTTP Header names are case-insensitive.</p>
+
+				<p>So, we can access the headers using any capitalization we want:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">'Content-Type'</span><span class="p">]</span><br><span class="go">'application/json'</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">headers</span><span class="d">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'content-type'</span><span class="p">)</span><br><span class="go">'application/json'</span></pre>
+				</div>
+
+				<p>It is also special in that the server could have sent the same header multiple times with different values, but requests combines them so they can be represented in the dictionary within a single mapping, as per <a href="https://tools.ietf.org/html/rfc7230#section-3.2" target="_blank">RFC 7230</a>:</p>
+
+				<blockquote>A recipient MAY combine multiple header fields with the same field name into one “field-name: field-value” pair, without changing the semantics of the message, by appending each subsequent field value to the combined field value in order, separated by a comma.</blockquote>
 			</section>
 
 			<section class="main-section" id="cookies">
 				<header>Cookies<a class="headerlink" href="#cookies" title="Permalink to this headline">¶</a></header>
+
+				<p>If a response contains some Cookies, you can quickly access them:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'http://example.com/some/cookie/setting/url'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">cookies</span><span class="p">[</span><span class="s1">'example_cookie_name'</span><span class="p">]</span><br><span class="go">'example_cookie_value'</span></pre>
+				</div>
+
+				<p>To send your own cookies to the server, you can use the <code>cookies</code> parameter:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://httpbin.org/cookies'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">cookies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="a">cookies_are</span><span class="o">=</span><span class="s1">'working'</span><span class="p">)</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">cookies</span><span class="o">=</span><span class="n">cookies</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">text</span><br><span class="go">'{"cookies": {"cookies_are": "working"}}'</span></pre>
+				</div>
+
+				<p>Cookies are returned in a <a href="https://2.python-requests.org/en/master/api/#requests.cookies.RequestsCookieJar" title="requests.cookies.RequestsCookieJar" target="_blank"><code class="xref">RequestsCookieJar</code></a>, which acts like a <code>dict</code> but also offers a more complete interface, suitable for use over multiple domains or paths.  Cookie jars can also be passed in to requests:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">jar</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="n">cookies</span><span class="d">.</span><span class="me">RequestsCookieJar</span><span class="p">()</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">jar</span><span class="d">.</span><span class="me">set</span><span class="p">(</span><span class="s1">'tasty_cookie'</span><span class="p">,</span> <span class="s1">'yum'</span><span class="p">,</span> <span class="a">domain</span><span class="o">=</span><span class="s1">'httpbin.org'</span><span class="p">,</span> <span class="a">path</span><span class="o">=</span><span class="s1">'/cookies'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">jar</span><span class="d">.</span><span class="me">set</span><span class="p">(</span><span class="s1">'gross_cookie'</span><span class="p">,</span> <span class="s1">'blech'</span><span class="p">,</span> <span class="a">domain</span><span class="o">=</span><span class="s1">'httpbin.org'</span><span class="p">,</span> <span class="a">path</span><span class="o">=</span><span class="s1">'/elsewhere'</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://httpbin.org/cookies'</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="a">cookies</span><span class="o">=</span><span class="n">jar</span><span class="p">)</span><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">text</span><br><span class="go">'{"cookies": {"tasty_cookie": "yum"}}'</span></pre>
+				</div>
 			</section>
 
 			<section class="main-section" id="redirection_and_history">
 				<header>Redirection and History<a class="headerlink" href="#redirection_and_history" title="Permalink to this headline">¶</a></header>
+
+				<p>By default Requests will perform location redirection for all verbs except HEAD.</p>
+
+				<p>We can use the <code>history</code> property of the Response object to track redirection.</p>
+
+				<p>The <a href="https://2.python-requests.org/en/master/api/#requests.Response.history" title="requests.Response.history" target="_blank"><code class="xref">Response.history</code></a> list contains the <a href="https://2.python-requests.org/en/master/api/#requests.Response" title="requests.Response" target="_blank"><code class="xref">Response</code></a> objects that were created in order to complete the request. The list is sorted from the oldest to the most recent response.</p>
+
+				<p>For example, GitHub redirects all HTTP requests to HTTPS:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'http://github.com/'</span><span class="p">)</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">url</span><br><span class="go">'https://github.com/'</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">status_code</span><br><span class="mi">200</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">history</span><br><span class="go">[&lt;Response [301]&gt;]</span></pre>
+				</div>
+
+				<p>If you’re using GET, OPTIONS, POST, PUT, PATCH or DELETE, you can disable redirection handling with the <code>allow_redirects</code> parameter:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'http://github.com/'</span><span class="p">,</span> <span class="a">allow_redirects</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">status_code</span><br><span class="mi">301</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">history</span><br><span class="go">[]</span></pre>
+				</div>
+
+				<p>If you’re using HEAD, you can enable redirection as well:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="d">.</span><span class="me">head</span><span class="p">(</span><span class="s1">'http://github.com/'</span><span class="p">,</span> <span class="a">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">url</span><br><span class="go">'https://github.com/'</span><br><br><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="d">.</span><span class="n">history</span><br><span class="go">[&lt;Response [301]&gt;]</span>
+				</pre>
 			</section>
 
 			<section class="main-section" id="timeouts">
 				<header>Timeouts<a class="headerlink" href="#timeouts" title="Permalink to this headline">¶</a></header>
+
+				<p>You can tell Requests to stop waiting for a response after a given number of seconds with the <code>timeout</code> parameter. Nearly all production code should use this parameter in nearly all requests. Failure to do so can cause your program to hang indefinitely:</p>
+
+				<div class="ide">
+					<pre><span class="gp">&gt;&gt;&gt; </span><span class="n">requests</span><span class="d">.</span><span class="me">get</span><span class="p">(</span><span class="s1">'https://github.com/'</span><span class="p">,</span> <span class="a">timeout</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span><br>Traceback (most recent call last):<br>  File <span class="s1">"&lt;stdin&gt;"</span>, line <span class="mi">1</span>, <span class="ow">in</span> <span class="n">&lt;module&gt;</span><br><span class="n">requests.exceptions.Timeout: <span class="nb">HTTPConnectionPool</span>(<span class="a">host</span><span class="o">=</span><span class="s1">'github.com'</span>, <span class="a">port</span><span class="o">=</span><span class="mi">80</span>): Request timed out. (<span class="a">timeout</span><span class="o">=</span><span class="mf">0.001</span>)</span></pre>
+				</div>
+
+				<div class="note neutral">
+					<p class="note-title">Note</p>
+					<p class="last"><code>timeout</code> is not a time limit on the entire response download; rather, an exception is raised if the server has not issued a response for <code>timeout</code> seconds (more precisely, if no bytes have been received on the underlying socket for <code>timeout</code> seconds). If no timeout is specified explicitly, requests do not time out.</p>
+				</div>
 			</section>
 
 			<section class="main-section margin-bottom-30" id="errors_and_exceptions">
 				<header>Errors and Exceptions<a class="headerlink" href="#errors_and_exceptions" title="Permalink to this headline">¶</a></header>
-			</section>-->
+
+				<p>In the event of a network problem (e.g. DNS failure, refused connection, etc), Requests will raise a <code class="xref nolink">ConnectionError</code> exception.</p>
+
+				<p><a href="https://2.python-requests.org/en/master/api/#requests.Response.raise_for_status" title="requests.Response.raise_for_status" target="_blank"><code class="xref">Response.raise_for_status()</code></a> will raise an <code class="xref nolink">HTTPError</code> if the HTTP requestreturned an unsuccessful status code.</p>
+
+				<p>If a request times out, a <code class="xref nolink">Timeout</code> exception is raised.</p>
+
+				<p>If a request exceeds the configured number of maximum redirections, a <code class="xref nolink">TooManyRedirects</code> exception is raised.</p>
+
+				<p>All exceptions that Requests explicitly raises inherit from <code class="xref nolink">requests.exceptions.RequestException</code>.</p>
+			</section>
 		</main>
 	</div>
 
