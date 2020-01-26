@@ -88,7 +88,7 @@ body {
 	color: hsl(210, 9%, 26%);
 	box-sizing: border-box;
 	display: block;
-	padding: 20px;
+	padding: 10px;
 }
 
 #main-doc * {
@@ -117,7 +117,7 @@ body {
 
 #main-doc p,
 #main-doc ul {
-	font-size: 1.7em;
+	font-size: 1.65em;
 	margin: 20px 0;
 }
 
@@ -247,6 +247,12 @@ body {
 #main-doc .note.neutral {
 	background: #eee;
 	border: solid 1px #ccc;
+}
+
+@media only screen and (min-width: 350px) {
+	#main-doc {
+		padding: 20px;
+	}
 }
 
 @media only screen and (min-width: 600px) {
