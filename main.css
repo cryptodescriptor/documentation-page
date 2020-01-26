@@ -249,6 +249,12 @@ body {
 	border: solid 1px #ccc;
 }
 
+@media only screen and (min-width: 350px) {
+	#main-doc {
+		padding: 20px;
+	}
+}
+
 @media only screen and (min-width: 600px) {
 	/* Adjust font-size because headerlink causes
 	premature wrapping */
@@ -257,7 +263,6 @@ body {
 	}
 
 	#main-doc {
-		padding: 20px;
 		font-size: 11px;
 	}
 }
