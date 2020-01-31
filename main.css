@@ -116,7 +116,7 @@ body {
 #main-doc header {
 	color: hsl(210, 9%, 18%);
 	font-size: 2.95em;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 }
 
 #main-doc section:not(:first-of-type) > header {
