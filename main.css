@@ -26,10 +26,15 @@ body {
 	border-bottom: solid 3px hsl(228, 8%, 42%); /* --dark-2 */
 }
 
-#navbar > header {
+#navbar > a > header {
 	font-size: 2.7rem;
 	text-align: center;
 	padding: 20px;
+}
+
+#navbar > a {
+	text-decoration: none;
+	color: white;
 }
 
 #navbar .simplebar-scrollbar:before {
