@@ -108,14 +108,15 @@ body {
 	font-size: 1.95em;
 }
 
-#introduction {
+#introduction,
+.main-section {
 	margin-bottom: 40px;
 }
 
 #main-doc header {
 	color: hsl(210, 9%, 18%);
 	font-size: 2.95em;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 #main-doc section:not(:first-of-type) > header {
