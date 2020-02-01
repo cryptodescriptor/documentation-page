@@ -322,8 +322,8 @@ body {
 	}
 }
 
-@media only screen and (min-width: 1318px) {
+@media only screen and (min-width: 1338px) {
 	#main-doc {
-		padding: 30px 50px;
+		padding: 30px 60px;
 	}
 }
