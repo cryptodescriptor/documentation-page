@@ -78,7 +78,6 @@ body {
 
 #page-wrapper {
 	height: 100%;
-	width: 100%;
 	position: relative;
 	display: block;
 	/* 71px + 208px + 3px */
@@ -182,7 +181,6 @@ body {
 #main-doc .ide {
 	font-size: 1.55em;
 	background: #272822;
-	width: 100%;
 	color: #f8f8f2;
 }
 
