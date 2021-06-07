@@ -28,6 +28,7 @@ body {
 
 #navbar > a > header {
 	font-size: 2.7rem;
+	line-height: 1;
 	text-align: center;
 	padding: 20px;
 }
@@ -46,10 +47,10 @@ body {
 	padding: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
-	/* 51px = (16px * 2) + 19px
-	51px * 4px = 204px
-	204px + 4px (borders) = 208px */
-	height: 208px;
+	/* 57px = (20px anchor padding * 2) + 17px line height
+	51px * 4 = 228px
+	228px + 5px (borders) = 208px */
+	height: 233px;
 }
 
 #navbar > ul li {
@@ -66,10 +67,10 @@ body {
 	display: block;
 	color: #ccc;
 	text-decoration: none;
-	padding: 16px;
+	padding: 20px;
 	padding-left: 30px;
 	font-size: 1.7rem;
-	line-height: 19px;
+	line-height: 1;
 }
 
 #navbar > ul li > a:hover {
@@ -80,8 +81,8 @@ body {
 	height: 100%;
 	position: relative;
 	display: block;
-	/* 71px + 208px + 3px */
-	margin-top: 282px;
+	/* 67px header + 233px + 3px */
+	margin-top: 303px;
 }
 
 #main-doc {
@@ -275,7 +276,7 @@ body {
 	/* Adjust font-size because headerlink causes
 	premature wrapping */
 	#main-doc header {
-		font-size: 3.05em;
+		font-size: 3.1em;
 	}
 
 	#main-doc {
@@ -285,8 +286,8 @@ body {
 
 @media only screen and (min-width: 815px) {
 	#navbar > ul {
-		/* -71px header */
-		height: calc(100% - 71px);
+		/* -67px header */
+		height: calc(100% - 67px);
 	}
 
 	#navbar > ul li > a {
