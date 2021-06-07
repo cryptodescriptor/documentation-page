@@ -276,7 +276,7 @@ body {
 	/* Adjust font-size because headerlink causes
 	premature wrapping */
 	#main-doc header {
-		font-size: 3.1em;
+		font-size: 3.05em;
 	}
 
 	#main-doc {
